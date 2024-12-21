@@ -1,6 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://p82qg3wny3y8"]
+[gd_scene load_steps=8 format=3 uid="uid://p82qg3wny3y8"]
 
 [ext_resource type="Script" path="res://autoload/configuration/configuration_audio/configuration_audio.gd" id="1_l13f0"]
+[ext_resource type="Script" path="res://addons/resonate/music_manager/music_bank.gd" id="2_73r41"]
+[ext_resource type="Script" path="res://addons/resonate/music_manager/music_track_resource.gd" id="3_nskvx"]
+[ext_resource type="Script" path="res://addons/resonate/music_manager/music_stem_resource.gd" id="4_7tjbj"]
+[ext_resource type="AudioStream" uid="uid://g7q0kw0852i3" path="res://assets/audio/music/menu_doodle_2_loop/ogg/menu_doodle_2_loop.ogg" id="5_04j5d"]
+
+[sub_resource type="Resource" id="Resource_00y01"]
+script = ExtResource("4_7tjbj")
+name = ""
+enabled = true
+volume = 0.0
+stream = ExtResource("5_04j5d")
+
+[sub_resource type="Resource" id="Resource_e4xvl"]
+script = ExtResource("3_nskvx")
+name = "menu_doodle_2_loop"
+bus = "Music"
+stems = Array[ExtResource("4_7tjbj")]([SubResource("Resource_00y01")])
 
 [node name="ConfigurationAudio" type="Node"]
 script = ExtResource("1_l13f0")
+
+[node name="MusicBank" type="Node" parent="."]
+script = ExtResource("2_73r41")
+label = "music"
+bus = "Music"
+tracks = Array[ExtResource("3_nskvx")]([SubResource("Resource_e4xvl")])

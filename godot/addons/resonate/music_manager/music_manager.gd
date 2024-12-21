@@ -104,7 +104,7 @@ func play(p_bank_label: String, p_track_name: String, p_crossfade_time: float = 
 	
 	var bus = _get_bus(bank.bus, track.bus)
 	var player = StemmedMusicStreamPlayer.create(p_bank_label, p_track_name, bus, bank.mode, _volume, p_auto_loop)
-	
+
 	if _music_streams.size() > 0:
 		for stream in _music_streams:
 			stream.stop_stems(p_crossfade_time)

@@ -100,7 +100,7 @@ func start_stems(p_stems: Array, p_crossfade_time: float) -> void:
 		if length > max_length:
 			max_length = length
 		
-		var stream_id = playback.play_stream(stem.stream)
+		var stream_id = playback.play_stream(stem.stream, 0, 1.0, pitch_scale, playback_type, bus)
 		var max_volume = stem.volume
 		var volume = max_volume if stem.enabled else _DISABLED_VOLUME
 		

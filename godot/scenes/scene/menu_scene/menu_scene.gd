@@ -17,6 +17,8 @@ func _ready() -> void:
 	_toggle_menu(main_menu)
 	_init_action_handler()
 
+	MusicManager.play("music", "menu_doodle_2_loop", 1.0)
+
 
 func _init_action_handler() -> void:
 	_action_handler.set_register_type("MenuButton")
